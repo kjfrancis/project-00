@@ -1,3 +1,5 @@
+// A --> 65
+// Right-Arrow --> 39
 $(document).on('ready', function() {
 
 console.log('JS is WORKING');
@@ -18,8 +20,12 @@ var resetGame = function () {
 });*/
 
 $(document).keydown(function (e){
-
-alert(e.keyCode);
+  if(e.which == 65) {
+  // $("player-one's-thing").css(left: 10px)
+} else if (e.which == 39) {
+  // exact same thing, excempt targeting player-two's img
+}
+// alert(e.keyCode);
     //move player two to the right
 
 });
