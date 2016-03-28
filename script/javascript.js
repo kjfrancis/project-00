@@ -6,11 +6,11 @@ console.log('JS is WORKING');
 
 var playerOne = "P1";
 var playerTwo = "P2";
-
-var resetGame = function () {
-  $boxes.text("");
-  $boxes.removeClass("X");
-  $boxes.removeClass("O");
+var letterA = 97;
+var letterL = 108;
+var resetGame = function() {
+  letterA.removeId("p-1");
+  rightArrow.removeId("p-2");
 };
 
 /*$(window).keydown(function (event){
@@ -19,28 +19,33 @@ var resetGame = function () {
 
 });*/
 
-$(document).keydown(function (e){
-  if(e.which == 65) {
-  // $("player-one's-thing").css(left: 10px)
-} else if (e.which == 39) {
-  // exact same thing, excempt targeting player-two's img
-}
-// alert(e.keyCode);
-    //move player two to the right
+$(window).on("keypress", function handleEvent(e){
+    console.log('is playerOne working', e);
+    if (e.keyCode === letterA){
+      $('#p-1').animate({
+                'left': '+=10px'
+      },0 );
+      if($('#p-1').css('left') === '830px'){
+        alert("Batman Wins!!");
+      }
+    } else {
+      console.log("if you're reading this, the first IF was failed!");
+    }
+  });
 
-});
-
+$(window).on("keypress" ,function handleEvent(e){
+    console.log('is playerTwo working');
+      if (e.which === letterL){
+      $('#p-2').animate({
+                'left': '+=10px'
+      } ,0 );
+      if($('#p-2').css('left') === '830px'){
+        alert("Superman Wins!!");
+      }
+    }
+  });
 $ ('#reset').on('click', function () {
   console.log("Button got clicked");
   resetGame();
 });
-/*$boxes.on('click', function() {
-  if ($(this).text() === "") {
-    $(this).text (turn);
-      changeTurn();
-    $(this).addClass(turn);
-    moves += 1;
-  }
-*/
-
 });
